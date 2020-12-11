@@ -9,7 +9,6 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <h1>Home</h1>
       <FlexContainerControl refContainer={containerRef} />
       <Container ref={containerRef}></Container>
     </>

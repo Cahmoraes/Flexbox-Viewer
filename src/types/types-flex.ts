@@ -1,4 +1,5 @@
 export type JustifyContent = 'flex-start' | 'center' | 'space-between' | 'space-around' | 'flex-end' | 'space-evenly'
-export type AlignContent = 'flex-start' | 'center' | 'flex-end' | 'stretch'
+export type AlignItems = 'flex-start' | 'center' | 'flex-end' | 'stretch'
 export type Wrap = 'wrap' | 'nowrap'
 export type Direction = 'row' | 'column'
+export type AlignContent = 'flex-start' | ' flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly' | 'stretch' | 'normal'

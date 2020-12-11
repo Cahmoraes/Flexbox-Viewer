@@ -5,14 +5,17 @@ export interface FlexContainerProps {
   wrap?: string
   justify?: string
   align?: string
+  alignContent?: string
 }
 
 export const FlexContainer = styled.div<FlexContainerProps>`
+  height: 30vh;
   background: tomato;
   border: 1px solid;
   display: flex;
   ${({ justify }) => css`justify-content: ${justify};`}
   ${({ align }) => css`align-items: ${align};`}
-  ${({ wrap }) => css`align-items: ${wrap};`}
-  ${({ direction }) => css`align-items: ${direction};`}
+  ${({ wrap }) => css`flex-wrap: ${wrap};`}
+  ${({ direction }) => css`flex-direction: ${direction};`}
+  ${({ alignContent }) => css`align-content: ${alignContent};`}
 `
