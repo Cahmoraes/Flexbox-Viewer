@@ -14,6 +14,7 @@ export default createGlobalStyle`
   body {
     font-size: 1.6rem;
     font-family: 'IBM Plex Mono', monospace;
+
   }
 
   img {

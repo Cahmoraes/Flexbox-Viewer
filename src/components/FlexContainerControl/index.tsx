@@ -2,6 +2,7 @@ import React, { ChangeEvent, useCallback } from 'react'
 import { AlignContent, AlignItems, JustifyContent, Wrap, Direction } from '../../types/types-flex'
 
 import { FlexContainerProps } from '../Flexbox/Container'
+import { ContainerControl, FlexControl } from './styles'
 
 interface FlexContainerControlProps {
   refContainer: React.RefObject<FlexContainerProps>
@@ -35,77 +36,78 @@ const FlexContainerControl: React.FC<FlexContainerControlProps> = ({ refContaine
   }, [refContainer])
 
   return (
-    <>
-      <h1>Control</h1>
+    <ContainerControl>
+      <FlexControl>
+        <h3>Flex Container</h3>
 
-      <div>
-        <label htmlFor="direction-select">Justify</label>
-        <select
-          name="direction-select"
-          onChange={handleDirection}
-        >
-          <option value="row">row</option>
-          <option value="column">column</option>
-        </select>
-      </div>
+        <div>
+          <label htmlFor="direction-select">Direction</label>
+          <select
+            name="direction-select"
+            onChange={handleDirection}
+          >
+            <option value="row">row</option>
+            <option value="column">column</option>
+          </select>
+        </div>
 
-      <div>
-        <label htmlFor="justify-select">Justify</label>
-        <select
-          name="justify-select"
-          onChange={handleJustify}
-        >
-          <option value="flex-start">start</option>
-          <option value="center">center</option>
-          <option value="flex-end">end</option>
-          <option value="space-between">space-between</option>
-          <option value="space-around">space-around</option>
-          <option value="space-evenly">space-evenly</option>
-        </select>
-      </div>
+        <div>
+          <label htmlFor="justify-select">Justify</label>
+          <select
+            name="justify-select"
+            onChange={handleJustify}
+          >
+            <option value="flex-start">start</option>
+            <option value="center">center</option>
+            <option value="flex-end">end</option>
+            <option value="space-between">space-between</option>
+            <option value="space-around">space-around</option>
+            <option value="space-evenly">space-evenly</option>
+          </select>
+        </div>
 
-      <div>
-        <label htmlFor="align-select">Align Items</label>
-        <select
-          name="align-select"
-          onChange={handleAlign}
-        >
-          <option value="stretch" defaultValue="stretch">stretch</option>
-          <option value="flex-start">start</option>
-          <option value="center">center</option>
-          <option value="flex-end">end</option>
-        </select>
-      </div>
+        <div>
+          <label htmlFor="align-select">Align Items</label>
+          <select
+            name="align-select"
+            onChange={handleAlign}
+          >
+            <option value="stretch" defaultValue="stretch">stretch</option>
+            <option value="flex-start">start</option>
+            <option value="center">center</option>
+            <option value="flex-end">end</option>
+          </select>
+        </div>
 
-      <div>
-        <label htmlFor="alignContent-select">Align Content</label>
-        <select
-          name="alignContent-select"
-          onChange={handleAlignContent}
-        >
-          <option value="normal">normal</option>
-          <option value="flex-start">start</option>
-          <option value="center">center</option>
-          <option value="flex-end">end</option>
-          <option value="stretch">stretch</option>
-          <option value="space-around">space-around</option>
-          <option value="space-between">space-between</option>
-          <option value="space-evenly">space-evenly</option>
-        </select>
-      </div>
+        <div>
+          <label htmlFor="alignContent-select">Align Content</label>
+          <select
+            name="alignContent-select"
+            onChange={handleAlignContent}
+          >
+            <option value="normal">normal</option>
+            <option value="flex-start">start</option>
+            <option value="center">center</option>
+            <option value="flex-end">end</option>
+            <option value="stretch">stretch</option>
+            <option value="space-around">space-around</option>
+            <option value="space-between">space-between</option>
+            <option value="space-evenly">space-evenly</option>
+          </select>
+        </div>
 
-      <div>
-        <label htmlFor="align-select">Wrap</label>
-        <select
-          name="wrap-select"
-          onChange={handleWrap}
-        >
-          <option value="nowrap">nowrap</option>
-          <option value="wrap">wrap</option>
-        </select>
-      </div>
-
-    </>
+        <div>
+          <label htmlFor="align-select">Wrap</label>
+          <select
+            name="wrap-select"
+            onChange={handleWrap}
+          >
+            <option value="nowrap">nowrap</option>
+            <option value="wrap">wrap</option>
+          </select>
+        </div>
+      </FlexControl>
+    </ContainerControl>
   )
 }
 

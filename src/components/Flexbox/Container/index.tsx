@@ -1,7 +1,8 @@
 import React, { forwardRef, useImperativeHandle, useState, useCallback } from 'react'
 
 import { JustifyContent, AlignContent, Wrap, Direction, AlignItems } from '../../../types/types-flex'
-import { FlexItem } from '../Item/styles'
+import Item from '../Item'
+
 import { FlexContainer } from './styles'
 
 export interface FlexContainerProps {
@@ -51,10 +52,16 @@ const Container: React.ForwardRefRenderFunction<FlexContainerProps> = ({ childre
   })
 
   return (
-    <FlexContainer justify={justify} align={align} direction={direction} wrap={wrap} alignContent={alignContent}>
-      <FlexItem>1</FlexItem>
-      <FlexItem>2</FlexItem>
-      <FlexItem>3</FlexItem>
+    <FlexContainer
+      justify={justify}
+      align={align}
+      direction={direction}
+      wrap={wrap}
+      alignContent={alignContent}
+    >
+      <Item>1</Item>
+      <Item>2</Item>
+      <Item>3</Item>
     </FlexContainer>
   )
 }

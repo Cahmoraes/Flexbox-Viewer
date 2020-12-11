@@ -2,6 +2,7 @@ import React from 'react'
 import { FlexItem } from './styles'
 
 export interface FlexItemProps {
+  active?: boolean
   alignSelf?: string
   grow?: number
   shrink?: number
@@ -9,6 +10,7 @@ export interface FlexItemProps {
 }
 
 const Item: React.FC<FlexItemProps> = ({
+  active = false,
   alignSelf = 'stretch',
   grow = 0,
   shrink = 1,
@@ -16,7 +18,7 @@ const Item: React.FC<FlexItemProps> = ({
   children
 }) => {
   return (
-    <FlexItem alignSelf={alignSelf} grow={grow} shrink={shrink} basis={basis}>
+    <FlexItem active={active} alignSelf={alignSelf} grow={grow} shrink={shrink} basis={basis}>
       {children}
     </FlexItem>
   )
