@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/flexbox-viewer/static/js/main.13e1d651.chunk.js",
-    "main.js.map": "/flexbox-viewer/static/js/main.13e1d651.chunk.js.map",
-    "runtime-main.js": "/flexbox-viewer/static/js/runtime-main.e94cd7a6.js",
-    "runtime-main.js.map": "/flexbox-viewer/static/js/runtime-main.e94cd7a6.js.map",
-    "static/js/2.677a2d92.chunk.js": "/flexbox-viewer/static/js/2.677a2d92.chunk.js",
-    "static/js/2.677a2d92.chunk.js.map": "/flexbox-viewer/static/js/2.677a2d92.chunk.js.map",
-    "index.html": "/flexbox-viewer/index.html",
-    "static/js/2.677a2d92.chunk.js.LICENSE.txt": "/flexbox-viewer/static/js/2.677a2d92.chunk.js.LICENSE.txt"
+    "main.js": "/Flexbox-Viewer/static/js/main.50ee012d.chunk.js",
+    "main.js.map": "/Flexbox-Viewer/static/js/main.50ee012d.chunk.js.map",
+    "runtime-main.js": "/Flexbox-Viewer/static/js/runtime-main.e4efa5fc.js",
+    "runtime-main.js.map": "/Flexbox-Viewer/static/js/runtime-main.e4efa5fc.js.map",
+    "static/js/2.a4093eec.chunk.js": "/Flexbox-Viewer/static/js/2.a4093eec.chunk.js",
+    "static/js/2.a4093eec.chunk.js.map": "/Flexbox-Viewer/static/js/2.a4093eec.chunk.js.map",
+    "index.html": "/Flexbox-Viewer/index.html",
+    "static/js/2.a4093eec.chunk.js.LICENSE.txt": "/Flexbox-Viewer/static/js/2.a4093eec.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e94cd7a6.js",
-    "static/js/2.677a2d92.chunk.js",
-    "static/js/main.13e1d651.chunk.js"
+    "static/js/runtime-main.e4efa5fc.js",
+    "static/js/2.a4093eec.chunk.js",
+    "static/js/main.50ee012d.chunk.js"
   ]
 }
