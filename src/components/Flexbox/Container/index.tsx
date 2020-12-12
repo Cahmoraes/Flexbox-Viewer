@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useState, useCallback } from 'react'
+import React, { forwardRef, useImperativeHandle, useState, useCallback, useEffect } from 'react'
 
 import { JustifyContent, AlignContent, Wrap, Direction, AlignItems } from '../../../types/types-flex'
 import Item from '../Item'
@@ -10,10 +10,22 @@ export interface FlexContainerProps {
   handleAlign: (align: AlignItems) => void
   handleAlignContent: (align: AlignContent) => void
   handleWrap: (wrap: Wrap) => void
-  handleDirection: (direction: Direction) => void
+  handleDirection: (direction: Direction) => void,
+  handleQtdItem: (qtdItem: any[]) => void
 }
 
 const Container: React.ForwardRefRenderFunction<FlexContainerProps> = ({ children }, ref) => {
+
+  const [justify, setJustify] = useState<JustifyContent>('flex-start')
+  const [align, setAlign] = useState<AlignItems>('stretch')
+  const [wrap, setWrap] = useState<Wrap>('nowrap')
+  const [direction, setDirection] = useState<Direction>('row')
+  const [alignContent, setAlignContent] = useState('normal')
+  const [qtdFlexItem, setQtdFlexItem] = useState<any[]>([''])
+
+  useEffect(() => {
+    console.log(qtdFlexItem)
+  }, [qtdFlexItem])
 
   const handleJustify = useCallback((justify: JustifyContent) => {
     setJustify(justify)
@@ -35,11 +47,9 @@ const Container: React.ForwardRefRenderFunction<FlexContainerProps> = ({ childre
     setDirection(direction)
   }, [])
 
-  const [justify, setJustify] = useState<JustifyContent>('flex-start')
-  const [align, setAlign] = useState<AlignItems>('stretch')
-  const [wrap, setWrap] = useState<Wrap>('nowrap')
-  const [direction, setDirection] = useState<Direction>('row')
-  const [alignContent, setAlignContent] = useState('normal')
+  const handleQtdItem = useCallback((qtdItem: any[]) => {
+    setQtdFlexItem(qtdItem)
+  }, [])
 
   useImperativeHandle(ref, () => {
     return {
@@ -47,7 +57,8 @@ const Container: React.ForwardRefRenderFunction<FlexContainerProps> = ({ childre
       handleAlign,
       handleWrap,
       handleDirection,
-      handleAlignContent
+      handleAlignContent,
+      handleQtdItem
     }
   })
 
@@ -59,9 +70,15 @@ const Container: React.ForwardRefRenderFunction<FlexContainerProps> = ({ childre
       wrap={wrap}
       alignContent={alignContent}
     >
-      <Item>1</Item>
-      <Item>2</Item>
-      <Item>3</Item>
+      {
+        // (Array.apply(null, Array(qtdFlexItem)).map((i, index) => (
+        //   <Item key={index}>{index + 1}</Item>
+        // )))
+
+        qtdFlexItem.map((i, index) => (
+          <Item key={index}>{index + 1}</Item>
+        ))
+      }
     </FlexContainer>
   )
 }

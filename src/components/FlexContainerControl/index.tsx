@@ -35,11 +35,25 @@ const FlexContainerControl: React.FC<FlexContainerControlProps> = ({ refContaine
     refContainer.current?.handleDirection(value)
   }, [refContainer])
 
+  const handleItensChange = useCallback((event: ChangeEvent) => {
+    const value = parseInt((event.target as HTMLInputElement).value, 10)
+    refContainer.current?.handleQtdItem(Array(value).fill(''))
+  }, [refContainer])
+
   return (
     <ContainerControl>
       <FlexControl>
         <h3>Flex Container</h3>
-
+        <div>
+          <label htmlFor="quantidade-itens">Itens</label>
+          <input
+            type="number"
+            min="0"
+            name="quantidade-itens"
+            defaultValue="1"
+            onChange={handleItensChange}
+          />
+        </div>
         <div>
           <label htmlFor="direction-select">Direction</label>
           <select
