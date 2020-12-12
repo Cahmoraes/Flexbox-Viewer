@@ -36,7 +36,7 @@ const FlexContainerControl: React.FC<FlexContainerControlProps> = ({ refContaine
   }, [refContainer])
 
   const handleItensChange = useCallback((event: ChangeEvent) => {
-    const value = parseInt((event.target as HTMLInputElement).value, 10)
+    const value = parseInt((event.target as HTMLInputElement).value, 10) || 0
     refContainer.current?.handleQtdItem(Array(value).fill(''))
   }, [refContainer])
 
@@ -44,6 +44,9 @@ const FlexContainerControl: React.FC<FlexContainerControlProps> = ({ refContaine
     <ContainerControl>
       <FlexControl>
         <h3>Flex Container</h3>
+        <div>
+
+        </div>
         <div>
           <label htmlFor="quantidade-itens">Itens</label>
           <input

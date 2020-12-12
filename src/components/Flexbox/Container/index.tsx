@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useState, useCallback, useEffect } from 'react'
+import React, { forwardRef, useImperativeHandle, useState, useCallback } from 'react'
 
 import { JustifyContent, AlignContent, Wrap, Direction, AlignItems } from '../../../types/types-flex'
 import Item from '../Item'
@@ -22,10 +22,6 @@ const Container: React.ForwardRefRenderFunction<FlexContainerProps> = ({ childre
   const [direction, setDirection] = useState<Direction>('row')
   const [alignContent, setAlignContent] = useState('normal')
   const [qtdFlexItem, setQtdFlexItem] = useState<any[]>([''])
-
-  useEffect(() => {
-    console.log(qtdFlexItem)
-  }, [qtdFlexItem])
 
   const handleJustify = useCallback((justify: JustifyContent) => {
     setJustify(justify)
@@ -74,7 +70,6 @@ const Container: React.ForwardRefRenderFunction<FlexContainerProps> = ({ childre
         // (Array.apply(null, Array(qtdFlexItem)).map((i, index) => (
         //   <Item key={index}>{index + 1}</Item>
         // )))
-
         qtdFlexItem.map((i, index) => (
           <Item key={index}>{index + 1}</Item>
         ))
