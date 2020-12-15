@@ -21,7 +21,7 @@ export const FlexItem = styled.div<FlexItemProps>`
   ${({ alignSelf, active }) => active && css`align-self: ${alignSelf};`}
   ${({ grow, active }) => active && css`flex-grow: ${grow};`}
   ${({ shrink, active }) => active && css`flex-shrink: ${shrink};`}
-  ${({ basis, active }) => active && css`flex-basis: ${basis};`}
+  ${({ basis, active }) => active && css`flex-basis: ${basis === 'auto' ? basis : basis + 'px'};`}
 `
 
 export const Tooltip = styled.div`

@@ -30,12 +30,12 @@ const FlexContainerControl: React.FC<FlexContainerControlProps> = ({ refContaine
     refContainer.current?.handleWrap(value)
   }, [refContainer])
 
-  const handleDirection = useCallback((event: ChangeEvent) => {
-    const value = (event.target as HTMLInputElement).value as Direction
+  const handleDirection = useCallback((event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value as Direction
     refContainer.current?.handleDirection(value)
   }, [refContainer])
 
-  const handleItensChange = useCallback((event: ChangeEvent) => {
+  const handleItensChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const value = parseInt((event.target as HTMLInputElement).value, 10) || 0
     refContainer.current?.handleQtdItem(Array(value).fill(''))
   }, [refContainer])

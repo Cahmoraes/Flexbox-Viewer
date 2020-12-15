@@ -21,6 +21,9 @@ const Item: React.FC<FlexItemProps> = ({
 
   const [showTooltip, setShowTooltip] = useState(false)
   const [stateAlignSelf, setStateAlignSelf] = useState(alignSelf)
+  const [stateGrow, setStateGrow] = useState(grow)
+  const [stateShrink, setStateShrink] = useState(shrink)
+  const [stateBasis, setStateBasis] = useState(basis)
 
   const closeToolTip = useCallback((event: SyntheticEvent<HTMLDivElement>) => {
     setShowTooltip(false)
@@ -34,6 +37,20 @@ const Item: React.FC<FlexItemProps> = ({
     setStateAlignSelf(event.target.value)
   }, [])
 
+  const handleFlexGrow = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    setStateGrow(parseInt(event.target.value, 10) || 0)
+  }, [])
+
+  const handleFlexShrink = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    setStateShrink(parseInt(event.target.value, 10) || 0)
+  }, [])
+
+  const handleFlexBasis = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    setStateBasis(event.target.value)
+  }, [])
+
+
+
   return (
     <>
       <FlexItem
@@ -41,9 +58,9 @@ const Item: React.FC<FlexItemProps> = ({
         onMouseLeave={closeToolTip}
         active={active}
         alignSelf={stateAlignSelf}
-        grow={grow}
-        shrink={shrink}
-        basis={basis}
+        grow={stateGrow}
+        shrink={stateShrink}
+        basis={stateBasis}
       >
         {
           showTooltip && (
@@ -60,6 +77,38 @@ const Item: React.FC<FlexItemProps> = ({
                   <option value="center">center</option>
                   <option value="flex-end">end</option>
                 </select>
+              </div>
+              <div>
+                <label htmlFor="flex-grow">Grow</label>
+                <input
+                  name="flex-grow"
+                  onChange={handleFlexGrow}
+                  type="number"
+                  min="0"
+                  value={stateGrow}
+                >
+                </input>
+              </div>
+              <div>
+                <label htmlFor="flex-shrink">Shrink</label>
+                <input
+                  name="flex-shrink"
+                  onChange={handleFlexShrink}
+                  type="number"
+                  min="0"
+                  value={stateShrink}
+                >
+                </input>
+              </div>
+              <div>
+                <label htmlFor="flex-basis">Basis</label>
+                <input
+                  name="flex-basis"
+                  onChange={handleFlexBasis}
+                  type="text"
+                  value={stateBasis}
+                >
+                </input>
               </div>
             </Tooltip>
           )
