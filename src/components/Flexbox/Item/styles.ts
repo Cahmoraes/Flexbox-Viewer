@@ -16,7 +16,7 @@ export const FlexItem = styled.div<FlexItemProps>`
   font-weight: bold;
   font-size: 2rem;
   background: #F65627;
-  position: relative;
+  
 
   ${({ alignSelf, active }) => active && css`align-self: ${alignSelf};`}
   ${({ grow, active }) => active && css`flex-grow: ${grow};`}
@@ -25,10 +25,13 @@ export const FlexItem = styled.div<FlexItemProps>`
 `
 
 export const Tooltip = styled.div`
+  font-size: 1.4rem;
+  padding: .5rem;
+  box-shadow: 0 0 0 2px #FB5, 0 0 0 6px rgba(0,0,0, .6);
+  border-radius: 2px;
   position: absolute;
-  top: -56px;
   background: #CCC;
-  right: -116px;
+  display: none;
   z-index: 9;
   width: 168px;
   &::after {
