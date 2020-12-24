@@ -2,6 +2,8 @@
   <a href="https://cahmoraes.github.io/Flexbox-Viewer/">Flexbox Viewer</a>
 </h3>
 
+<img src="https://github.com/Cahmoraes/Flexbox-Viewer/blob/master/src/assets/examples/example.gif" alt="Flexbox Viewer">
+
 ---
 ## Descrição
 Com intuito de revisar Flexbox, desenvolvi uma aplicação para controlar e observar os estados e propriedades do Flexbox.<br>
