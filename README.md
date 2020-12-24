@@ -1,5 +1,5 @@
 <h3 align="center">
-  <a href="https://cahmoraes.github.io/nature-react/">Flexbox Viewer</a>
+  <a href="https://cahmoraes.github.io/Flexbox-Viewer/">Flexbox Viewer</a>
 </h3>
 
 ---
