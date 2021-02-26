@@ -1,4 +1,4 @@
-import React, { useCallback, useState, ChangeEvent, MouseEvent, useRef, useEffect } from 'react'
+import React, { useCallback, useState, ChangeEvent, MouseEvent, useRef } from 'react'
 
 import { FlexItem, Tooltip } from './styles'
 
@@ -12,12 +12,14 @@ export interface FlexItemProps {
 
 const Item: React.FC<FlexItemProps> = ({
   active = true,
-  alignSelf = 'stretch',
+  alignSelf = 'auto',
   grow = 0,
   shrink = 1,
   basis = 'auto',
   children
 }) => {
+
+  const [stateCheckedActive, setCheckedStateActive] = useState(false)
   const [stateAlignSelf, setStateAlignSelf] = useState(alignSelf)
   const [stateGrow, setStateGrow] = useState(grow)
   const [stateShrink, setStateShrink] = useState(shrink)
@@ -35,8 +37,9 @@ const Item: React.FC<FlexItemProps> = ({
     const element = event.currentTarget as HTMLElement
     if (tooltipRef.current) {
       tooltipRef.current.style.display = 'block'
-      console.log(element.offsetLeft + element.offsetWidth + element.offsetWidth + 21, window.innerWidth)
+      console.log(element.offsetLeft, element.offsetWidth, window.innerWidth)
       if (element.offsetLeft + element.offsetWidth + element.offsetWidth + 21 >= window.innerWidth) {
+        console.log('aqui 2')
         const difference = (window.innerWidth - element.offsetLeft) - (element.offsetLeft + element.offsetWidth - window.innerWidth)
         tooltipRef.current.style.left = `${element.offsetLeft - difference + 'px'}`
       } else {
@@ -63,13 +66,13 @@ const Item: React.FC<FlexItemProps> = ({
         document.body.removeAttribute(outsideClick)
       }
     }
-
-
-  }, [])
+  }, [closeToolTip, openToolTip])
 
   const handleAlignSelf = useCallback((event: ChangeEvent<HTMLSelectElement>) => {
-    setStateAlignSelf(event.target.value)
-  }, [])
+    if (stateCheckedActive) {
+      setStateAlignSelf(event.target.value)
+    }
+  }, [stateCheckedActive])
 
   const handleFlexGrow = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     setStateGrow(parseInt(event.target.value, 10) || 0)
@@ -81,6 +84,13 @@ const Item: React.FC<FlexItemProps> = ({
 
   const handleFlexBasis = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     setStateBasis(event.target.value)
+  }, [])
+
+  const handleActiveState = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.checked) {
+      setStateAlignSelf('auto')
+    }
+    setCheckedStateActive(event.target.checked)
   }, [])
 
 
@@ -98,13 +108,23 @@ const Item: React.FC<FlexItemProps> = ({
         {
           <Tooltip ref={tooltipRef}>
             <div>
+              <label htmlFor="align-select">Active</label>
+              <input
+                type="checkbox"
+                name="active-state"
+                checked={stateCheckedActive}
+                onChange={handleActiveState}
+              />
+            </div>
+            <div>
               <label htmlFor="align-select">Align Self</label>
               <select
                 name="align-select"
                 onChange={handleAlignSelf}
                 value={stateAlignSelf}
               >
-                <option value="stretch" defaultValue="stretch">stretch</option>
+                <option value="auto" defaultValue="auto">auto</option>
+                <option value="stretch">stretch</option>
                 <option value="flex-start">start</option>
                 <option value="center">center</option>
                 <option value="flex-end">end</option>
